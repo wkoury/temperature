@@ -4,8 +4,8 @@ RUN apk add --no-cache make
 
 WORKDIR /app
 
-# COPY go.mod go.sum ./
-COPY go.mod ./
+COPY go.mod go.sum ./
+# COPY go.mod ./
 RUN go mod download
 
 COPY . .
