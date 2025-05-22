@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"temperature/internal/gpio"
+	"temperature/internal/temp"
 	"time"
 )
 
@@ -19,7 +20,7 @@ func main() {
 		if err != nil {
 			log.Printf("Error reading temperature: %v", err)
 		} else {
-			fmt.Printf("Temperature: %.3f °C\n", tempC)
+			fmt.Printf("Temperature: %.3f °F\n", temp.CtoF(tempC))
 		}
 		time.Sleep(1 * time.Second)
 	}

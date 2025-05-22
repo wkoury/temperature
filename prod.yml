@@ -1,0 +1,16 @@
+name: temperature
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    restart: unless-stopped
+    # ports:
+      # - "8080:8080"
+    volumes:
+      - ./:/app
+      - "/sys/bus/w1/devices:/sys/bus/w1/devices:ro"
+    devices:
+      - "/dev/w1_bus_master1:/dev/w1_bus_master1"

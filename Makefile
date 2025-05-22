@@ -5,11 +5,14 @@ APP_NAME ?= ./temp
 # Default target: build the binary
 all: build
 
+prod:
+	docker compose -f prod.yml up
+
 build:
 	go build -o ${APP_NAME} ./cmd/main.go
 
 run:
-	air
+	docker compose up
 
 dev: run
 
